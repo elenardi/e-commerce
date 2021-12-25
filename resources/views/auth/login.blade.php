@@ -20,14 +20,14 @@
                             </a>
                         </div>
                     </div>
-                    <div class="card-body px-lg-5 py-lg-5">
-                        <div class="text-center text-muted mb-4">
+                    <div class="card-body px-lg-5 py-lg-3">
+                        <!-- <div class="text-center text-muted mb-4">
                             <small>
                                     Create new account OR Sign in with these credentials:
                                     <br>
                                     Username <strong>admin@argon.com</strong> Password: <strong>secret</strong>
                             </small>
-                        </div>
+                        </div> -->
                         <form role="form" method="POST" action="{{ route('login') }}">
                             @csrf
 
@@ -36,7 +36,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                     </div>
-                                    <input class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Email') }}" type="email" name="email" value="{{ old('email') }}" value="admin@argon.com" required autofocus>
+                                    <input class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Email') }}" type="email" name="email" required autofocus>
                                 </div>
                                 @if ($errors->has('email'))
                                     <span class="invalid-feedback" style="display: block;" role="alert">
@@ -49,7 +49,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                                     </div>
-                                    <input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="{{ __('Password') }}" type="password" value="secret" required>
+                                    <input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="{{ __('Password') }}" type="password" required>
                                 </div>
                                 @if ($errors->has('password'))
                                     <span class="invalid-feedback" style="display: block;" role="alert">
