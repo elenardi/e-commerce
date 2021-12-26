@@ -28,6 +28,12 @@
                                     Username <strong>admin@argon.com</strong> Password: <strong>secret</strong>
                             </small>
                         </div> -->
+                        @if (Session::has('flash_message_error'))
+                            <div class="alert alert-danger alert-block">
+                                <button type="button" class="close" data-dismiss="alert">x</button>
+                                <strong>{!! session('flash_message_error') !!}</strong>
+                            </div>
+                        @endif
                         <form role="form" method="POST" action="{{ route('login') }}">
                             @csrf
                             <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }} mb-3">

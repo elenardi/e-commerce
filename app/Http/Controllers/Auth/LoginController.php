@@ -44,10 +44,12 @@ class LoginController extends Controller
         if($request-> isMethod('post')){
             $data = $request->input();
             if(Auth::attempt(['email' => $data['email'], 'password' => $data['password'], 'admin' => '1'])){
-                echo "Success"; die;
+                //echo "Success"; die;
+                return redirect('/home');
             }
             else{
-                echo "Failed"; die;
+                //echo "Failed"; die;
+                return redirect('/login')->with('flash_message_error','Invalid Email or Password');
             }
         }
 
