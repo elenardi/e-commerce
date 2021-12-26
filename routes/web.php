@@ -19,12 +19,11 @@ Route::get('/', function () {
 })->middleware('guest');
 
 Auth::routes();
-
 Route::post('/login', [App\Http\Controlls\Auth\LoginController::class, 'login'])->name('login');
+Route::post('/logout', [App\Http\Controlls\Auth\LoginController::class, 'logout'])->name('logout');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Auth::routes();
-
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
 
 Route::group(['middleware' => 'auth'], function () {
