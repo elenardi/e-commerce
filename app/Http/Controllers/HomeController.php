@@ -21,6 +21,13 @@ class HomeController extends Controller
      */
     public function index()
     {
+        //Session Protected
+        // if(Session::has('adminSession')){
+        //     //Perform all dashboard task
+        // }
+        // else{
+        //     return redirect('/login')->with('flash_message_error', 'Please Login First');
+        // }
         return view('dashboard');
     }
 }
