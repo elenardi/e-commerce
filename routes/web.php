@@ -37,6 +37,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
 
     // Category Route (Admin)
+    Route::get('/category', [App\Http\Controllers\CategoryController::class, 'index'])->name('category');
     Route::match(['get', 'post'],'/add_category', [App\Http\Controllers\CategoryController::class, 'addCategory']);
 });
 

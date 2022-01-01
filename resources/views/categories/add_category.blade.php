@@ -3,7 +3,24 @@
 @section('content')
 @include('layouts.headers.use')
 
-    <div class="container-fluid mt--7">
+    <div class="container-fluid mt--8">
+        {{-- Content Header --}}
+        <div class="header-body">
+            <div class="row align-items-center py-3">
+                <div class="col-lg-8 col-7">
+                    <h6 class="h2 text-white d-inline-block mb-0">Categories</h6>
+                    <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-auto">
+                        <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                            <li class="breadcrumb-item"><a href="{{route('home')}}"><i class="fas fa-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="{{route('category')}}">Main Category</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Add Category</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        {{-- End Content Header --}}
+        {{-- Content --}}
         <div class="col-xl-12 order-xl-1">
             <div class="card bg-secondary shadow">
                 <div class="card-header bg-white border-0">
@@ -15,8 +32,6 @@
                     <form method="post" action="{{ url('/add_category')}}" autocomplete="off">
                         @csrf
 
-                        <h6 class="heading-small text-muted mb-4">{{ __('Category Form') }}</h6>
-
                         @if (session('status'))
                             <div class="alert alert-success alert-dismissible fade show" role="alert">
                                 {{ session('status') }}
@@ -26,7 +41,7 @@
                             </div>
                         @endif
 
-                        <div class="pl-lg-4">
+                        <div class="pl-0">
 
                             <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
                                 <label class="form-control-label" for="input-name">{{ __('Category Name') }}</label>
@@ -67,6 +82,7 @@
                 </div>
             </div>
         </div>
+        {{-- End Content --}}
         @include('layouts.footers.auth')
     </div>
 
